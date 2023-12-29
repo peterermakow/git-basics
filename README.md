@@ -112,3 +112,14 @@ $ git commit --amend --no-edit
 ```bash
 $ git commit --amend -m 'new message'
 ```
+
+Для выполнения unstage изменений выполняется следующая команда:
+```bash
+$ git restore --staged <file>
+```
+
+Для отката коммитов(т.е. возвращениия репозитория к какому-то более раннему состоянию) используется команда 
+```bash
+$ git reset --hard <commit hash>
+```
+Более поздние коммиты теряются
