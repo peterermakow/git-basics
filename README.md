@@ -162,3 +162,38 @@ $ git branch -D <branch_name>
 ```
 
 
+### Fast-forward и non-fast-forward
+
+Если истории двух веток не разошлись и их коммиты выстраиваются в одну цепочку, значит эти ветки можно объединить в режиме fast-forward
+
+Для отключения слияния веток в режиме fast-forward применяется флаг --no-ff
+```bash
+# находимся в ветке, в которую делаем мерж
+# флаг *--no-edit* отключает ввод сообщения для мерж-коммита
+# флаг *--no-ff* отключает слияние в режиме fast-forward и создаст допольнительный мерж-коммит(это дает более полную инфо, нежели ff)
+$ git merge --no-edit --no-ff add-docs
+``` 
+
+Также fast-forward можно отключить навсегда командой:
+```bash
+$ git config [--global] merge.ff false
+```
+
+
+Флаг *--graph* нарисует ветки с помощью чёрточек и звездочек
+```bash
+$ git log --graph --oneline
+*   6814789 (HEAD -> main) Merge branch 'add-docs'
+|\
+| * e08fa2a (add-docs) New docs 2
+| * fd588b2 New docs 1
+|/
+* 997d9ce Commit 4
+* 0313e8e Commit 3
+* 5848aba Commit 2
+* 04923d7 Commit 1 
+``` 
+
+
+
+
